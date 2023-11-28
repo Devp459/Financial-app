@@ -1,0 +1,57 @@
+#This program matches the DNA from files 1-20 and outputing the names of people who it matches it with from 2 different files small.txt and large.txt
+
+def open_file(file_int):  # This funtion opens the small and large files
+    final_dict = {}
+    if file_int in [1, 2, 3, 4]:
+        file_str = 'small.txt'
+    else:
+        file_str = 'large.txt'
+    with open(file_str, 'r') as file:
+        line = file.readlines()
+        column = line[0].strip().split(',')
+        for line in line[1:]:
+            values = line.strip().split(',')
+            entry = {}
+            for i in range(1, len(column)):
+                entry[column[i]] = int(values[i])
+            final_dict[values[0]] = entry
+    return final_dict
+
+def count_str(sequence, str_sequence):  # this function calculates the longest run of consecutives substrings in the DNA strings
+    longest_run = 0
+    current_run = 0
+    index = 0
+    while index < len(sequence):
+        if sequence[index:index + len(str_sequence)] == str_sequence:
+            current_run += 1
+            index += len(str_sequence)
+            if current_run > longest_run:
+                longest_run = current_run
+        else:
+            current_run = 0
+            index += 1
+    return longest_run
+
+def match_dna_sequence(sequence, file_read):  # This funtion combines the two files (small or large, 1-20 files) and gives out the name that matches or No Match
+    match_name = "No Match."
+    max_matches = 0
+    for name, values in file_read.items():
+        matches = 0
+        for str_sequence, str_count in values.items():
+            longest_run = count_str(sequence, str_sequence)
+            if longest_run == str_count:
+                matches += 1
+        if matches == len(values):
+            if matches > max_matches:
+                max_matches = matches
+                match_name = name
+    return match_name
+
+for user_input in range(1, 21):  #This loops user_input to open all the files from 1-20 and print out the output from match_dna_sequence
+    file_name = f'{user_input}.txt'
+    file_read = open_file(user_input)
+    with open(file_name, 'r') as file:
+        sequence = file.read().strip()
+    match = match_dna_sequence(sequence, file_read)
+    print(f'Dna Sequence #{user_input} matches: {match}')
+
