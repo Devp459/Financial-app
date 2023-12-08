@@ -1,0 +1,9 @@
+What is your monthly income?
+What is your financial goal(A certain amount of money you would like to reach in the future)?
+In how many years do you want to achieve your financial goal?
+How much of your income goes into your rent/mortgage?
+How much of your income goes into groceries/household items?
+How much of your income goes into paying off your credit cards/forms of debt?If none, enter 0.
+How much of your income goes into transportation(gas,bus fare,etc)?
+Miscellaneous purchases(fun, going out food, travel, clothes, etc)?
+How much of your income would you like to put into your savings? If none, enter 0.
