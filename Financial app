@@ -1,7 +1,7 @@
 # Final Project
-# CS 111, Hayes & Reckinger
 # Mr.Rich's Financial App
-
+#This app will ask you simple questions regarding how much you spend monthly on various things.
+#Then with the collected data it will give out advice on what to do to save more money
 
 
 import turtle
