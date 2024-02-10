@@ -21,6 +21,7 @@ global hit
 hit = 1
 
 
+
 def no_name(x,y):
     global count
     count += 1
