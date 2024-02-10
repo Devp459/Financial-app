@@ -21,13 +21,13 @@ money_spent = 0
 global hit
 hit = 1
 
-def get_input():
+def get_input(prompt):
     # Create a custom input box
-    input_box = turtle.textinput("Input", )
+    input_box = turtle.textinput("Input", prompt)
 
     # Wait for the user to enter text
     while input_box is None:
-        input_box = turtle.textinput("Input", )
+        input_box = turtle.textinput("Input", prompt)
 
     return input_box
 
@@ -199,7 +199,7 @@ def conversation(x,y):
         conversation1.goto(210, 250)
         conversation1.shape(conversation_list[1])
         conversation1.showturtle()
-    elif hit == 2:
+    elif hit == 3:
         conversation1.penup()
         conversation1.goto(300, -50)
         conversation1.shape(conversation_list[0])
@@ -337,8 +337,9 @@ def question_set(i):
                 spent = simpledialog.askinteger("Question", f"{questions[i]}")
                 turtle.update()
                 text.write("Is this the right amount of money y/n?",False,align = 'left', font = ('Verdana', 16, 'bold'))
-                x = turtle.textinput("Confirmation", "Is this the right amount of money y/n?")
-                get_input(prompt)
+                #get_input(questions[i])
+                x = simpledialog.askstring("Confirmation", "Is this the right amount of money y/n?")
+                
 
                 
                 if x == "y":
