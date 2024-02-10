@@ -1,3 +1,4 @@
+
 # Final Project
 # Mr.Rich's Financial App
 #This app will ask you simple questions regarding how much you spend monthly on various things.
@@ -30,10 +31,6 @@ def get_input(prompt):
         input_box = turtle.textinput("Input", prompt)
 
     return input_box
-
-# Replace turtle.textinput with get_input in your code
-
-
 
 def no_name(x,y):
     global count
@@ -484,6 +481,5 @@ t_text.pencolor("white")
 t_text.write("Welcome to My Little Q&A App!", False, align="center", font=("Verdana", 35, "bold"))
 next_button.onclick(no_name)
 turtle.onscreenclick(None)
-
 
 turtle.mainloop()
